@@ -1,0 +1,60 @@
+/* This is a comment in CSS : http://www.w3schools.com/css/css_syntax.asp */ 
+/* Armata is a Google Font  https://www.google.com/fonts */
+.h1 a {
+	font-family: 'Armata';
+}
+body {
+    padding-left: 15px;
+}
+
+.page-header {
+    background-color: #9999FF;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Armata', cursive;
+}
+
+.date {
+    float: right;
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.raceDetail-form textarea, .raceDetail-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.raceDetail {
+    margin-bottom: 70px;
+}
+
+.raceDetail h1 a, .raceDetail h1 a:visited {
+    color: #000000;
+}
+/* Single-direction drop shadow TODO: Why does this not work as hr.somename*/ 
+hr { 
+    height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5); 
+}

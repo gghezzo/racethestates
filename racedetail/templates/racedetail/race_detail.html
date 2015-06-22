@@ -1,0 +1,16 @@
+{% load url from future %}
+{% extends 'raceDetail/base.html' %}
+
+{% block content %}
+    <div class="raceDetail">
+        {% if raceDetail.racedate %}
+            <div class="date">
+                {{ raceDetail.racedate }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'race_edit' pk=raceDetail.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ raceDetail.racename }}</h1>
+        <p>{{ raceDetail.meta|linebreaks }}</p>
+        <p> "This is the end of the races"</p>
+    </div>
+{% endblock %}
