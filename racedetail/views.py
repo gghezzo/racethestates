@@ -10,7 +10,11 @@ def race_list(request):
     races = raceDetail.objects.filter(raceDate__lte=timezone.now()).order_by('raceDate')
     return render(request, 'racedetail/race_list.html', {'races':races})
 
-def race_detail(request, pk):
+def race_prettymap(request):
+    race = raceDetail.objects.filter(raceDate__lte=timezone.now()).order_by('raceDate')
+    return render(request, 'racedetail/prettymap.html', {'race':race})
+
+def race_detail(request):
     race = get_object_or_404(raceDetail, pk=pk)
     return render(request, 'racedetail/race_detail.html', {'race': race})
 
