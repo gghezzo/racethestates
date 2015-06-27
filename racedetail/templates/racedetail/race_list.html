@@ -3,17 +3,13 @@
 {% extends 'racedetail/base.html' %}
 
 {% block content %}
-    {% for raceDetail in races %}
-        <div class="racedetail">
+    {% for race in races %}
+        <div class="post">
             <div class="date">
-                {{ racedetail.racedate }}
+                {{ race.racedate }}
             </div>
-            <p>{{ raceDetail.state|linebreaks }}</p>
-            <h1><a href="">{{ raceDetail.raceName }}</a></h1>
-            <p>{{ raceDetail.meta|linebreaks }}</p>
-            <p> <b>Date: </b>{{ raceDetail.raceDate }}</p>
-            <p> <b>My results:</b> {{ raceDetail.results }}</p>
-            <p>{{ raceDetail.link|linebreaks }}</p>
+            <h1><a href="{% url 'racedetail.views.race_detail' pk=race.pk %}">{{ race.raceName }}</a></h1>
+            <p>{{ race.meta|linebreaks }}</p>
             <hr>
         </div>
     {% endfor %}

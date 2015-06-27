@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 # Fix results to be HH:MM:SS not time 
-# Fix 
+# Fix the state to be a state 
+
 class raceDetail(models.Model):
     state = models.CharField(max_length=2)
     runnerName = models.ForeignKey('auth.User')
@@ -13,6 +14,8 @@ class raceDetail(models.Model):
    
 
     def publish(self):
+        self.raceDate = timezone.now()
+        self.state = "XX"
         self.save()
 
     def __str__(self):
