@@ -15,8 +15,9 @@ class raceDetail(models.Model):
 
     def publish(self):
         self.raceDate = timezone.now()
-        self.state = "XX"
+        print("This is in publish")
         self.save()
 
     def __str__(self):
+        print("This is in __str__")
         return self.raceName

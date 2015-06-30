@@ -10,6 +10,8 @@
             </div>
             <h1><a href="{% url 'racedetail.views.race_detail' pk=race.pk %}">{{ race.raceName }}</a></h1>
             <p>{{ race.meta|linebreaks }}</p>
+            <p>{{ race.results }}</p>
+            <p>{{ race.state }}</p>
             <hr>
         </div>
     {% endfor %}

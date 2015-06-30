@@ -9,7 +9,7 @@
         {% endif %}
         <a class="btn btn-default" href="{% url 'race_edit' pk=race.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <h1>{{ race.raceName }}</h1>
-        <p>{{ race.raceLink }}</p>
+        <p>{{ race.results }}</p>
         <p>{{ race.meta|linebreaks }}</p>
         <p> "This is the end of the races"</p>
     </div>

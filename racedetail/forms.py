@@ -5,4 +5,4 @@ class raceDetailForm(forms.ModelForm):
 
     class Meta:
         model = raceDetail
-        fields = ('raceName', 'meta',)
+        fields = ('state', 'raceName', 'results', 'meta',)

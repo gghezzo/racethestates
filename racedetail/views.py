@@ -8,19 +8,23 @@ from django.shortcuts import redirect
 # This is my view 
 def race_list(request):
     races = raceDetail.objects.filter(raceDate__lte=timezone.now()).order_by('raceDate')
+    print("Inside race_list of the view")
     return render(request, 'racedetail/race_list.html', {'races':races})
 
-def race_prettymap(request):
-    race = raceDetail.objects.filter(raceDate__lte=timezone.now()).order_by('raceDate')
-    return render(request, 'racedetail/prettymap.html', {'race':race})
-
-def race_detail(request):
+def race_detail(request, pk):
     race = get_object_or_404(raceDetail, pk=pk)
+    print("Instead race_deatil view")
     return render(request, 'racedetail/race_detail.html', {'race': race})
+
+def race_prettymap(request):
+    races = raceDetail.objects.filter(raceDate__lte=timezone.now()).order_by('raceDate')
+    print("Instead race_prettymap view")
+    return render(request, 'racedetail/prettymap.html', {'races':races})
 
 def race_new(request):
     if request.method == "POST":
         form = raceDetailForm(request.POST)
+        print("Instead race_new view")
         if form.is_valid():
             race = form.save(commit=False)
             race.runnerName = request.user
@@ -33,6 +37,7 @@ def race_new(request):
 
 def race_edit(request, pk):
     race = get_object_or_404(raceDetail, pk=pk) # Not sure what the second race should be? Post? 
+    print("Instead race_edit view")
     if request.method == "POST":
         form = raceDetailForm(request.POST, instance=race)
         if form.is_valid():
