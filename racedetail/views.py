@@ -21,6 +21,11 @@ def race_prettymap(request):
     print("Instead race_prettymap view")
     return render(request, 'racedetail/prettymap.html', {'races':races})
 
+def race_easymap(request):
+    races = raceDetail.objects.filter(raceDate__lte=timezone.now()).order_by('raceDate')
+    print("Instead race_easymap view")
+    return render(request, 'racedetail/easymap.html', {'races':races})
+
 def race_new(request):
     if request.method == "POST":
         form = raceDetailForm(request.POST)

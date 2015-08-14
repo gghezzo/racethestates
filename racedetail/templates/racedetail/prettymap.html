@@ -16,28 +16,28 @@
   <div class="container">
     <h1 class="text-center">Race the United States</h1>
     <h2 class="h3 subline text-center">Complete a Race in all 50 States.</h2>
-    <!-- Below is just temp -->
     <p>{{ races }}</p>
-    {% for race in races %}
-      <<!--<p>{{ race.state }}</p> -->
-      <!-- Trying out the django template: http://www.djangobook.com/en/2.0/chapter04.html  -->
-      {% ifequal race.state "NY" %}
-      <p> "This is a thing" </p>
-        <a href="#">New York</a>
-          <h2>{{ race.raceName }}</h2>
-             <main>
-                <p>Date: {{ race.raceDate}} </p>
-                <p>Results: {{ race.results }}</p>
-                <p>{{ race.meta }} </p>
-              </main>
-        {% endifequal %}
-
-    {% endfor %}
-    <!-- Above is just temp -->
-
+    {% for race in races %} 
     <a href="{% url 'racedetail.views.race_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
     <div class="map">
       <ul class="map-markers">
+        {% ifequal race.state "NY" %}
+        <li class="map-marker map-marker-ny">
+          <a href="#">New York</a>
+          <div class="map-marker-info">
+            <div class="map-marker-info-inner animate-bounce-in">
+              <header>
+                <h2>{{ race.raceName }}</h2>
+              </header>
+              <main>
+                <p>Date: {{ race.raceDate}} </p>
+                <p>Results: {{ race.results }}</p>
+                <p>Meta: {{ race.meta }} </p>
+              </main>
+            </div>
+          </div>
+        </li>
+      {% endifequal %}
         <li class="map-marker map-marker-ri">
           <a href="#">Rhode Island</a>
           <div class="map-marker-info">
@@ -54,38 +54,7 @@
           </div>
         </li>
     <!-- Trying out the django template: http://www.djangobook.com/en/2.0/chapter04.html  -->
-    {% ifequal race}
-    <li class="map-marker map-marker-ny">
-          <a href="#">New York</a>
-          <div class="map-marker-info">
-            <div class="map-marker-info-inner animate-bounce-in">
-              <header>
-                <h2>NY:Some 4 miler on Long Island</h2>
-              </header>
-              <main>
-                <p>Date: June ??, 2014 </p>
-                <p>Results: ?? seconds</p>
-                <p>Bubnis reunion and 4 miler. </p>
-              </main>
-            </div>
-          </div>
-        </li>
-    <li class="map-marker map-marker-ny">
-          <a href="#">New York</a>
-          <div class="map-marker-info">
-            <div class="map-marker-info-inner animate-bounce-in">
-              <header>
-                <h2>NY:Some 4 miler on Long Island</h2>
-              </header>
-              <main>
-                <p>Date: June ??, 2014 </p>
-                <p>Results: ?? seconds</p>
-                <p>Bubnis reunion and 4 miler. </p>
-              </main>
-            </div>
-          </div>
-        </li>
-    <li class="map-marker map-marker-me">
+       <li class="map-marker map-marker-me">
           <a href="#">Maine</a>
           <div class="map-marker-info">
             <div class="map-marker-info-inner animate-bounce-in">
@@ -130,7 +99,7 @@
             </div>
           </div>
         </li>
-
+{% ifequal race.state "CA" %}
         <li class="map-marker map-marker-ca map-marker-tbd">
           <a href="#">Los Angeles</a>
           <div class="map-marker-info">
@@ -146,6 +115,7 @@
             </div>
           </div>
         </li>
+{% endifequal %}
         <li class="map-marker map-marker-va map-marker-tbd">
           <a href="#">Virginia</a>
           <div class="map-marker-info">
@@ -176,11 +146,6 @@
             </div>
           </div>
         </li>
-
-
-
-
-
       </ul>
 
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="21.263 7.056 906.273 561.17" fill="#293447">
@@ -309,13 +274,7 @@
     </div>
 
   </div>
-
+{% endfor %}
 </body>
 </html>
     
-    
-    
-    
-    
-  </body>
-</html>

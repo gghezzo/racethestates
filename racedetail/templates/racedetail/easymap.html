@@ -1,0 +1,20 @@
+<!-- This is a comment in HTML --> 
+
+{% extends 'racedetail/base.html' %}
+{% load easy_maps_tags %}
+{% block content %}
+    
+    {% easy_map "Raleigh, North Carolina" 600 600 %}
+    {% for race in races %}
+        <div class="post">
+            <div class="date">
+                {{ race.racedate }}
+            </div>
+            <h1><a href="{% url 'racedetail.views.race_detail' pk=race.pk %}">{{ race.raceName }}</a></h1>
+            <p>{{ race.meta|linebreaks }}</p>
+            <p>{{ race.results }}</p>
+            <p>{{ race.state }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock content %}
